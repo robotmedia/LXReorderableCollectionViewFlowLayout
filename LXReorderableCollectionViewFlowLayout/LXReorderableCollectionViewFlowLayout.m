@@ -67,7 +67,7 @@ static NSString * const kLXReorderableCollectionViewFlowLayoutScrollingDirection
 
 - (void)invalidateLayoutIfNecessary {
     NSIndexPath *theIndexPathOfSelectedItem = [self.collectionView indexPathForItemAtPoint:self.currentView.center];
-    if ((![theIndexPathOfSelectedItem isEqual:self.selectedItemIndexPath]) &&(theIndexPathOfSelectedItem)) {
+    if ((![theIndexPathOfSelectedItem isEqual:self.selectedItemIndexPath]) && (theIndexPathOfSelectedItem)) {
         NSIndexPath *thePreviousSelectedIndexPath = self.selectedItemIndexPath;
         self.selectedItemIndexPath = theIndexPathOfSelectedItem;
         
@@ -95,9 +95,8 @@ static NSString * const kLXReorderableCollectionViewFlowLayoutScrollingDirection
         }
         
         [self.collectionView performBatchUpdates:^{
-            //[self.collectionView moveItemAtIndexPath:thePreviousSelectedIndexPath toIndexPath:theIndexPathOfSelectedItem];
-            [self.collectionView deleteItemsAtIndexPaths:@[ thePreviousSelectedIndexPath ]];
-            [self.collectionView insertItemsAtIndexPaths:@[ theIndexPathOfSelectedItem ]];
+            [self.collectionView moveItemAtIndexPath:thePreviousSelectedIndexPath toIndexPath:theIndexPathOfSelectedItem];
+            [self.collectionView moveItemAtIndexPath:theIndexPathOfSelectedItem toIndexPath:thePreviousSelectedIndexPath];
         } completion:^(BOOL finished) {
         }];
     }

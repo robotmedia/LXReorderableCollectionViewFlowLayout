@@ -112,8 +112,13 @@
 
 - (void)collectionView:(UICollectionView *)theCollectionView layout:(UICollectionViewLayout *)theLayout itemAtIndexPath:(NSIndexPath *)theFromIndexPath willMoveToIndexPath:(NSIndexPath *)theToIndexPath {
     id theFromItem = [self.deck objectAtIndex:theFromIndexPath.item];
-    [self.deck removeObjectAtIndex:theFromIndexPath.item];
+    id theToItem = [self.deck objectAtIndex:theToIndexPath.item];
+    
+    [self.deck removeObject:theFromItem];
     [self.deck insertObject:theFromItem atIndex:theToIndexPath.item];
+    
+    [self.deck removeObject:theToItem];
+    [self.deck insertObject:theToItem atIndex:theFromIndexPath.item];
 }
 
 @end
