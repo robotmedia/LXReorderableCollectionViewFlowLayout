@@ -6,8 +6,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STCollectionViewPagedLayout.h"
 
-@interface LXReorderableCollectionViewFlowLayout : UICollectionViewFlowLayout <UIGestureRecognizerDelegate>
+@interface LXReorderableCollectionViewFlowLayout : STCollectionViewPagedLayout <UIGestureRecognizerDelegate>
 
 @property (assign, nonatomic) CGFloat scrollingSpeed;
 @property (assign, nonatomic) UIEdgeInsets scrollingTriggerEdgeInsets;
