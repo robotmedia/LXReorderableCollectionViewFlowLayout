@@ -37,4 +37,7 @@
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout didEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath;
 
+- (void)collectionViewScrollToNextPage:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout;
+- (void)collectionViewScrollToPreviousPage:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout;
+
 @end

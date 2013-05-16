@@ -271,11 +271,17 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
         switch(direction) {
             case LXScrollingDirectionUp:
             case LXScrollingDirectionLeft: {
-                [self scrollToPreviousPage];
+                if([self.delegate respondsToSelector:@selector(collectionViewScrollToPreviousPage:layout:)])
+                    [self.delegate collectionViewScrollToPreviousPage:self.collectionView layout:self];
+                else
+                    [self scrollToPreviousPage];
             } break;
             case LXScrollingDirectionDown:
             case LXScrollingDirectionRight: {
-                [self scrollToNextPage];
+                if([self.delegate respondsToSelector:@selector(collectionViewScrollToNextPage:layout:)])
+                    [self.delegate collectionViewScrollToNextPage:self.collectionView layout:self];
+                else
+                    [self scrollToNextPage];
             } break;
             default: {
                 // Do nothing...
