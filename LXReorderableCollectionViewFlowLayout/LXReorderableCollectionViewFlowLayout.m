@@ -72,6 +72,8 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
     }
 }
 
+@end
+
 @interface CADisplayLink (LX_userInfo)
 @property (nonatomic, copy) NSDictionary *LX_userInfo;
 @end
