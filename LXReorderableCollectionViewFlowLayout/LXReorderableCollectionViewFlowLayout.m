@@ -593,4 +593,20 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
     // Do nothing...
 }
 
+- (CGSize)collectionViewContentSize
+{
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height - 64;
+    CGSize collectionViewContentSize = [super collectionViewContentSize];
+    if((int)collectionViewContentSize.height % (int)screenHeight != 0)
+    {
+        int numberOfPages = floor(collectionViewContentSize.height / screenHeight);
+        CGSize newContentSize = CGSizeMake(collectionViewContentSize.width, (screenHeight * numberOfPages) + screenHeight);
+        return newContentSize;
+    }
+    else
+    {
+        return [super collectionViewContentSize];
+    }
+}
+
 @end
